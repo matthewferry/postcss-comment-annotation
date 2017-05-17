@@ -1,0 +1,36 @@
+{
+  "name": "postcss-comment-annotation",
+  "version": "0.0.0",
+  "description": "PostCSS plugin for annotating comments",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "comments",
+    "annotation"
+  ],
+  "author": "Matthew Ferry <hello@matthew-ferry.com>",
+  "license": "MIT",
+  "repository": "matthewferry/postcss-comment-annotation",
+  "bugs": {
+    "url": "https://github.com/matthewferry/postcss-comment-annotation/issues"
+  },
+  "homepage": "https://github.com/matthewferry/postcss-comment-annotation",
+  "dependencies": {
+    "postcss": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-postcss": "^2.0.2",
+    "jest": "^20.0.0"
+  },
+  "scripts": {
+    "test": "jest && eslint *.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5",
+    "env": {
+      "jest": true
+    }
+  }
+}

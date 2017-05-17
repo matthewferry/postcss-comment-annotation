@@ -1,0 +1,6 @@
+# Dependencies
+node_modules
+
+# Debugging
+*.log
+.DS_Store
