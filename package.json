@@ -1,6 +1,6 @@
 {
   "name": "postcss-comment-annotation",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "PostCSS plugin for annotating comments",
   "keywords": [
     "postcss",
