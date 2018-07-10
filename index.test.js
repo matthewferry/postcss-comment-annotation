@@ -1,58 +1,43 @@
 const postcss = require('postcss');
+const fs = require('fs');
 const plugin = require('./');
-
-const css = `
-/*
-@define Link
-
-@boolean
-
-@description
-Pink anchors
-are super hip
-*/
-a { color: blue; }
-/* #define Empty comment block #boolean*/
-/* @define Empty comment block @boolean*/
-`;
-
+const css = fs.readFileSync('index.test.css', 'utf-8');
 const opts = {
     prefix: '#'
 };
 
 it('should not modify any output CSS', () => {
-    return postcss([ plugin ]).process(css)
+    return postcss([plugin]).process(css)
         .then(result => {
             expect(result.css).toEqual(css);
         });
 });
 
-it('should return array of objects for each annotated comment block', () => {
-    return postcss([ plugin ]).process(css)
+it('should only push comments that have annotations', () => {
+    return postcss([plugin]).process(css)
         .then(result => {
-            expect(result.commentAnnotations).toHaveLength(2);
+            expect(result.commentAnnotations).toHaveLength(1);
         });
 });
 
-it('should create annotation property for default prefixed keys', () => {
-    return postcss([ plugin ]).process(css)
+it('should create property for default prefixed keys', () => {
+    return postcss([plugin]).process(css)
         .then(result => {
-            expect(result.commentAnnotations[0]).toHaveProperty('define');
+            expect(result.commentAnnotations[0]).toHaveProperty('foo');
         });
 });
 
-it('should use option prefix to create annotation property', () => {
+it('should use option prefix to create properties', () => {
     return postcss([plugin(opts)]).process(css)
         .then(result => {
-            expect(result.commentAnnotations[0]).toHaveProperty('define');
+            expect(result.commentAnnotations[0]).toHaveProperty('foo');
         });
 });
 
 it('should create a value for single line annotations', () => {
     return postcss([plugin]).process(css)
         .then(result => {
-            expect(result.commentAnnotations[0])
-                .toHaveProperty('define', 'Link');
+            expect(result.commentAnnotations[0]).toHaveProperty('foo', 'Bar');
         });
 });
 
@@ -60,14 +45,13 @@ it('should create a value for multi line annotations', () => {
     return postcss([plugin]).process(css)
         .then(result => {
             expect(result.commentAnnotations[0])
-                .toHaveProperty('description', 'Pink anchors\nare super hip');
+                .toHaveProperty('qux', 'Foo bar\nbaz qux');
         });
 });
 
 it('should take key without value as boolean', () => {
     return postcss([plugin]).process(css)
         .then(result => {
-            expect(result.commentAnnotations[0])
-              .toHaveProperty('boolean', true);
+            expect(result.commentAnnotations[0]).toHaveProperty('baz', true);
         });
 });

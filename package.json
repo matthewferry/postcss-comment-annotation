@@ -12,6 +12,9 @@
   "author": "Matthew Ferry <hello@matthew-ferry.com>",
   "license": "MIT",
   "repository": "matthewferry/postcss-comment-annotation",
+  "files": [
+    "index.js"
+  ],
   "bugs": {
     "url": "https://github.com/matthewferry/postcss-comment-annotation/issues"
   },

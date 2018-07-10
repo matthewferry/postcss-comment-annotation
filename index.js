@@ -4,9 +4,9 @@ module.exports = postcss.plugin('postcss-comment-annotation', (opts) => {
     opts = opts || {};
 
     const prefix = opts.prefix || '@';
-    const matchComment = `(\\${prefix}(?:\\r?\\n|.)+?)(?=\\${prefix}|$)`;
-    const matchKeyVal =
-      `\\${prefix}(\\w*)\\s((?:\\r?\\n|.)*?)(?=\\r?\\n\\r?\\n|$)`;
+    const newLine = '(?:\\r?\\n|.)*?)';
+    const matchComment = `(\\${prefix}${newLine}(?=\\${prefix}|$)`;
+    const matchKeyVal = `\\${prefix}(\\w*)\\s(${newLine}(?=\\r?\\n\\r?\\n|$)`;
     const matchBool = `\\${prefix}(\\w+)\\s*(?=\\n|$)`;
 
     return (root, result) => {

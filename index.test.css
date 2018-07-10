@@ -1,0 +1,22 @@
+/* Foo bar */
+
+/*
+@foo Bar
+
+@baz
+
+@qux
+Foo bar
+baz qux
+*/
+
+.foo {
+  color: pink; /* Baz qux */
+}
+
+/* Foo bar */
+
+/*
+#foo Bar
+#baz Qux
+*/
