@@ -1,11 +1,11 @@
-# PostCSS Comment Annotation [![Build Status][ci-img]][ci]
+![Build status](https://action-badges.now.sh/matthewferry/postcss-comment-annotation?action=Test)
+
+# PostCSS Comment Annotation 
 
 [PostCSS] plugin for annotating comments, inspired by and based on
 [morishitter](https://github.com/morishitter)'s [CSS Annotation](https://github.com/morishitter/css-annotation).
 
 [PostCSS]: https://github.com/postcss/postcss
-[ci-img]:  https://travis-ci.org/matthewferry/postcss-comment-annotation.svg
-[ci]:      https://travis-ci.org/matthewferry/postcss-comment-annotation
 
 ## Install
 `npm install postcss-comment-annotation`
