@@ -1,4 +1,4 @@
-![Build status](https://action-badges.now.sh/matthewferry/postcss-comment-annotation?action=Test)
+![Tests](https://github.com/matthewferry/postcss-comment-annotation/workflows/Tests/badge.svg)
 
 # PostCSS Comment Annotation 
 
